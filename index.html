@@ -1,200 +1,57 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÆóÒµÍøÕ¾ÊµÀı</title>
-<link href="css/main.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/setHomeSetFav.js"></script>
-<script type="text/javascript" src="js/myfocus-2.0.1.min.js" charset="utf-8"></script><!--ÒıÈëmyFocus¿â-->
-<script type="text/javascript">
-myFocus.set({
-    id:'boxID',//½¹µãÍ¼ºĞ×ÓID
-    pattern:'mF_fancy',//·ç¸ñÓ¦ÓÃµÄÃû³Æ
-    time:3,//ÇĞ»»Ê±¼ä¼ä¸ô(Ãë)
-    trigger:'click',//´¥·¢ÇĞ»»Ä£Ê½:'click'(µã»÷)/'mouseover'(ĞüÍ£)
-    width:1000,//ÉèÖÃÍ¼Æ¬ÇøÓò¿í¶È(ÏñËØ)
-    height:310,//ÉèÖÃÍ¼Æ¬ÇøÓò¸ß¶È(ÏñËØ)
-    txtHeight:'default'//ÎÄ×Ö²ã¸ß¶ÈÉèÖÃ(ÏñËØ),'default'ÎªÄ¬ÈÏ¸ß¶È£¬0ÎªÒş²Ø
-});
-</script>
+  <meta charset="UTF-8">
+  <title>jQueryç½‘é¡µä¾§è¾¹æ»‘åŠ¨å±•å¼€å¯¼èˆª - ç«™é•¿ç´ æ</title>
+  <style type="text/css">
+    body { font-family: Arial; background: #eee; }
+    h1, h2 { margin-top: 0; }
+    p { color: #ccc; line-height: 1.5; }
+    #page { width: 940px; height: 400px; padding: 20px; margin: 0 auto; background: white; }
+    .panel {
+      display: none;
+      width: 220px;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+      box-shadow: inset 0 0 5px 5px #222;
+    }
+  </style>
 </head>
-
 <body>
-<div class="top">
-  <div class="top_content">
-    <ul>
-      <li><a href="#">ÁªÏµÎÒÃÇ</a></li>
-      <li><a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)">¼ÓÈëÊÕ²Ø</a></li>
-      <li><a onclick="SetHome(window.location)" href="javascript:void(0)">ÉèÎªÊ×Ò³</a></li>
-    </ul>
+  <!-- Centered page -->
+  <div id="page">
+    <h1>Panel slider example</h1>
+    <a id="left-panel-link" href="#left-panel">æ‰“å¼€å·¦é¢æ¿</a> |
+    <a id="right-panel-link" href="#right-panel">æ‰“å¼€å³é¢æ¿</a>    
   </div>
-</div>
-<!--Ò³Ãæ¶¥¶Ëtop½áÊø-->
 
-<div class="wrap">
-  <div  class="logo">
-    <div class="logo_left"><img src="images/logo.jpg" /></div>
-    <div class="logo_right"><img src="images/tel.jpg" width="28" height="28" />24Ğ¡Ê±·şÎñÈÈÏß£º<span class="tel">123-456-7890</span></div>
+  <!-- Left panel -->
+  <div id="left-panel" class="panel">
+    <h2>Left panel</h2>
+    <p>Click anywhere outside panel to close it.</p>
   </div>
-  <!--logo½áÊø-->
-  
-  <div class="nav">
-    <div  class="nav_left"></div>
-    <div class="nav_mid">
-      <div class="nav_mid_left">
-        <ul>
-          <li><a href="#">Ê×Ò³</a></li>
-          <li><a href="list.html">¹ØÓÚÄ½¿Î</a></li>
-          <li><a href="list.html">ĞÂÎÅ¶¯Ì¬</a></li>
-          <li><a href="list.html">¿Î³ÌÖĞĞÄ</a></li>
-          <li><a href="list.html">ÔÚÏß¿Î³Ì</a></li>
-          <li><a href="list.html">ÈË²ÅÕĞÆ¸</a></li>
-        </ul>
-      </div>
-      <!--nav_mid_left½áÊø-->
-      <div class="nav_mid_right">
-        <form action="" method="post">
-          <input type="text" class="search_text" />
-          <!--<input type="text" class="search_text" x-webkit-speech />-->
-        </form>
-      </div>
-      <!--nav_mid_right½áÊø--> 
-    </div>
-    <!--µ¼º½Ö÷Ìånav_mid½áÊø-->
-    <div class="nav_right"></div>
+
+  <!-- Right panel -->
+  <div id="right-panel" class="panel">
+    <h2>Right panel</h2>
+    <p>Clicking outside this panel wont close it because <code>clickClose = false</code></p>
+    <button id="close-panel-bt">Close</button>
   </div>
-  <!--nav½áÊø-->
-  
-  <div class="ad">
-    <div id="boxID"><!--½¹µãÍ¼ºĞ×Ó-->
-      <div class="loading"><img src="images/loading.gif" alt="ÇëÉÔºò..." /></div>
-      <!--ÔØÈë»­Ãæ(¿ÉÉ¾³ı)-->
-      <div class="pic"><!--ÄÚÈİÁĞ±í(liÊıÄ¿¿ÉËæÒâÔö¼õ)-->
-        <ul>
-          <li><a href="#"><img src="images/ad2.jpg" thumb="" alt="" text="ÏêÏ¸ÃèÊö2" /></a></li>
-          <li><a href="#"><img src="images/ad3.jpg" thumb="" alt="" text="ÏêÏ¸ÃèÊö3" /></a></li>
-          <li><a href="#"><img src="images/ad4.jpg" thumb="" alt="" text="ÏêÏ¸ÃèÊö4" /></a></li>
-          <li><a href="#"><img src="images/ad3.jpg" thumb="" alt="" text="ÏêÏ¸ÃèÊö5" /></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <!--ad½áÊø-->
-  
-  <div class="main">
-    <div class="news">
-      <div class="title">
-        <h2 class="titile_left">ĞÂÎÅÖĞĞÄ</h2>
-        <span class="title_right"><a href="#">More&gt;&gt;</a></span> </div>
-      <!--title½áÊø-->
-      
-      <div class="pic_news"> <img src="images/news.jpg" alt="520 Ä½Å®Éñº°ÄãÀ´±í°×" width="113" height="77" />
-        <h2><a href="news.html">520 Ä½Å®Éñº°ÄãÀ´±í°×£¡</a></h2>
-        <p>»î¶¯Ê±¼ä£º5ÔÂ20ÈÕ¡ª5ÔÂ25ÈÕ<br />
-          »ñ½±¹«²¼Ê±¼ä£º5ÔÂ26ÈÕ<br />
-          <a href="news.html">Learn More>></a></p>
-      </div>
-      <!--pic_news½áÊø-->
-      
-      <div class="news_list">
-        <ul>
-          <li><span>2014-06-01</span> <a href="news.html">¡¾Ä½¿Í·ÃÌ¸ ÓÃ»§Æª¡¿¡°ÓĞÎªŒÅË¿¡±ÔÚÂ·ÉÏ</a></li>
-          <li><span>2014-06-01</span><a href="news.html">¡¾ÓĞ½±»î¶¯¡¿¸ø¸¸Ç×µÄÈıĞĞÊéĞÅ</a></li>
-          <li><span>2014-05-30</span><a href="news.html">¡¶³ÌĞòÔ³£¬ÇëÉ¹³öÄãµÄÍ¯Äê¡·»î¶¯»ñ½±¹«¸æ</a></li>
-          <li><span>2014-05-28</span><a href="news.html" title="aa">¡¾Ä½¿Î·ÃÌ¸¡¿ÆÆ¼ë³Éµû¡ª¡ªÃÀÅ®³ÌĞòÔ±µÄÍÉ±äÊ·</a></li>
-        </ul>
-      </div>
-      <!--news_list½áÊø--> 
-      
-    </div>
-    <!--news½áÊø-->
-    
-    <div class="products">
-      <div class="title">
-        <h2 class="titile_left">¿Î³ÌÖĞĞÄ</h2>
-        <span class="title_right"><a href="#">More&gt;&gt;</a></span> </div>
-      <!--title½áÊø-->
-      
-      <div class="product_list"><img src="images/css.jpg" alt="CSSÔ²½Ç½ø»¯ÂÛ" width="158" height="106" />
-        <h2><a href="news.html">CSSÔ²½Ç½ø»¯ÂÛ</a></h2>
-        <p> CSSÔ²½ÇµÄÊµÏÖ£¬¾­ÀúÁËÈı´ó·¢Õ¹½×¶Î£º±³¾°Í¼Æ¬·½Ê½¡¢CSS2.0+HTML±êÇ©Ä£Äâ¡¢CSS3.0Ô²½ÇÊôĞÔ£©¡£±¾°¸ÀıÏêÏ¸½²½âÃ¿Ò»ÖÖµÄÊµÏÖ·½Ê½£¬²¢¶ÔÊµÏÖµÄÓÅÈ±µã½øĞĞ¶Ô±È·ÖÎö¡£</p>
-      </div>
-      <!--product_list½áÊø-->
-      
-      <div class="product_type">
-        <ul>
-          <li>PHP¿ª·¢</li>
-          <li>Ç°¶Ë¿ª·¢</li>
-          <li>JAVA¿ª·¢</li>
-          <li>Android¿ª·¢</li>
-        </ul>
-      </div>
-    </div>
-    <!--products½áÊø-->
-    
-    <div class="sidebar">
-      <div class="video">
-        <div class="title">
-          <h2 class="titile_left">Ã½Ìå¾Û½¹</h2>
-          <span class="title_right"><a href="#">More&gt;&gt;</a></span> </div>
-        <!--title½áÊø-->
-        <p class="video_content">
-          <embed src="http://player.youku.com/player.php/sid/XNjkzMDE5MTUy/v.swf" allowFullScreen="true" quality="high" width="220" height="140" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
-        </p>
-      </div>
-      <!--video½áÊø-->
-      
-      <div class="service"> <img src="images/app.jpg" /> </div>
-    </div>
-    <!--sidebar½áÊø--> 
-    
-  </div>
-  <!--main½áÊø--> 
+  <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+  <script src="jquery.panelslider.js"></script>
+  <script>
+    $('#left-panel-link').panelslider();
+    $('#right-panel-link').panelslider({side: 'right', clickClose: false, duration: 200 });
+    $('#close-panel-bt').click(function() {
+      $.panelslider.close();
+    });
+  </script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>é€‚ç”¨æµè§ˆå™¨ï¼šIE8ã€360ã€FireFoxã€Chromeã€Safariã€Operaã€å‚²æ¸¸ã€æœç‹—ã€ä¸–ç•Œä¹‹çª—. </p>
+<p>æ¥æºï¼š<a href="http://sc.chinaz.com/" target="_blank">ç«™é•¿ç´ æ</a></p>
 </div>
-<!--×îÍâ²ãwrap½áÊø  -->
-<div class="copyright">
-  <div class="copyright_content">
-    <ul>
-      <li>¹ØÓÚ
-        <ul>
-          <li>Æ·ÅÆ¹ÊÊÂ</li>
-          <li>ÁªÏµÎÒÃÇ</li>
-          <li>¼ÓÈëÎÒÃÇ</li>
-          <li>°æÈ¨ÉùÃ÷</li>
-        </ul>
-      </li>
-      <li>¿Î³Ì
-        <ul>
-          <li>PHP¿ª·¢</li>
-          <li>Ç°¶Ë¿ª·¢</li>
-          <li>JAVA¿ª·¢</li>
-          <li>Android¿ª·¢</li>
-        </ul>
-      </li>
-      <li>¹Ø×¢
-        <ul>
-          <li>ĞÂÀËÎ¢²©</li>
-          <li>ÌÚÑ¶Î¢²©</li>
-          <li>ÆóÒµÎ¢ĞÅ</li>
-          <li>QQ¿Õ¼ä</li>
-        </ul>
-      </li>
-      <li>ÁôÑÔ
-        <ul>
-          <li>Òâ¼û·´À¡</li>
-          <li>ÎÊÌâÁôÑÔ</li>
-          <li>Ã½ÌåÁªÂç</li>
-          <li>ÔÚÏß¿Í·ş</li>
-        </ul>
-      </li>
-      <li><img src="images/weixin.png" alt="Î¢ĞÅ¹Ø×¢" width="30" height="27" />Î¢ĞÅ¹Ø×¢
-        <ul>
-          <li><img src="images/qrcode.jpg" alt="É¨Ãè¹Ø×¢Ä½¿ÎÍø¹Ù·½Î¢ĞÅ" width="102" height="102" /></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  <!--copyright_content½áÊø--> 
-</div>
+
 </body>
 </html>
