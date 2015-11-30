@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>3-4-4</title>
+ <!--   引入jQuery -->
+ <script src="../../scripts/jquery.js" type="text/javascript"></script>
+ <script type="text/javascript">
+ //<![CDATA[
+  $(function(){
+	 $("#btn").click(function(){
+	 	$("ul li:eq(2)").empty(); // 找到第三个<li>元素节点后，清空此元素里的内容
+	 })
+  });
+  //]]>
+  </script>
+</head>
+<body>
+	<p title="选择你最喜欢的水果." >你最喜欢的水果是?</p>
+	<ul>
+	  <li title='苹果'>苹果</li>
+	  <li title='橘子'>橘子</li>
+	  <li title='菠萝'>菠萝</li>
+	</ul>
+	<button id="btn">清空第三个元素内容</button>
+</body>
+</html>
+
+ 
