@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="frameworks/home-slider/js/jquery.flexslider-min.js"></script>
+    <script src="js/home.js"></script>
+</head>
+
+<body>
+<header class="lh-head">
+    <nav class="lh-navbar">
+        <div class="lh-navbar-header fl">
+            <a href="javascript:void(0)">武汉高德</a>
+        </div>
+        <ul class="lh-navbar-pages fl ml180 js-nav">
+            <li class="page-selected"><a href="home.html">首页</a></li>
+            <li><a href="">课程中心</a></li>
+            <li><a href="">素材中心</a></li>
+            <li><a href="">我的课程</a></li>
+            <li><a href="">我的素材</a></li>
+        </ul>
+        <div class="lh-navbar-search fl ml60">
+            <input type="search" placeholder="搜索课程" class="searchInput">
+            <input type="button" class="searchBtn">
+        </div>
+        <div class="lh-navbar-user fr">
+            <div class="userAwatar fl mr20">
+                <img width=30 height=30 src="images/defaultAvatar.jpeg">
+            </div>
+            <div class="fl userList">
+                <a class="userList-name" href="javascript:void(0)"><span class="userList-name-text">李欢</span><span class="f12">&nbsp;&#9660;</span></a>
+                <ul class="userList-select">
+                    <li><a class="self" href="" target="_blank">个人中心</a></li>
+                    <li><a class="self" href="">设置</a></li>
+                    <li><a class="self js-quit" href="javascript:void(0)">退出</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="msg fr clearfix">
+            <a href="" target="_blank">
+                <em class="msgNum"></em>
+                <span class="msgLogo"></span>
+            </a>
+        </div>
+    </nav>
+</header>
+<section class="flexslider p53">
+    <ul class="slides">
+        <li style="background:url(frameworks/home-slider/images/img1.jpg) 50% 0 no-repeat;"></li>
+        <li style="background:url(frameworks/home-slider/images/img2.jpg) 50% 0 no-repeat;"></li>
+        <li style="background:url(frameworks/home-slider/images/img3.jpg) 50% 0 no-repeat;"></li>
+        <li style="background:url(frameworks/home-slider/images/img4.jpg) 50% 0 no-repeat;"></li>
+    </ul>
+</section>
+<section class="section">
+    <div class="section-head">
+        <h2>精品课程</h2>
+    </div>
+    <div class="section-nav">
+        <a class="home-btn home-btn-active" href="#">全部课程</a>
+        <a class="home-btn" href="#">大学教育</a>
+        <a class="home-btn" href="#">基础教育</a>
+        <a class="home-btn" href="#">职业发展</a>
+        <a class="home-btn" href="#">考试专区</a>
+    </div>
+    <ul id="recommandCourse" class="mt20 section-content">
+        <li class="fl ml60">
+            <a>
+                <img width="314" height="193" src="images/home2.jpg">
+            </a>
+            <dl>
+                <dt>
+                    <a>教育学</a>
+                </dt>
+                <dd>主讲老师: 李老师
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;类别 基础科学 </span>
+                </dd>
+            </dl>
+        </li>
+        <li class="fl ml60">
+            <a>
+                <img width="314" height="193" src="images/home1.jpg">
+            </a>
+            <dl>
+                <dt>
+                    <a> 人因工程</a>
+                </dt>
+                <dd>主讲老师: 刘颖
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;类别 基础科学 </span>
+                </dd>
+            </dl>
+        </li>
+        <li class="fl ml60">
+            <a>
+                <img width="314" height="193" src="images/home3.jpg">
+            </a>
+            <dl>
+                <dt>
+                    <a>视觉设计</a>
+                </dt>
+                <dd>主讲老师: 梁俊辉
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;类别 基础科学 </span>
+                </dd>
+            </dl>
+        </li>
+    </ul>
+    <div class="cb"></div>
+
+    <div class="home-more">
+        <a class="home-btn" href="">全部课程</a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-head">
+        <h2>精品素材</h2>
+    </div>
+    <div class="section-nav">
+        <a class="home-btn home-btn-active" href="#">全部素材</a>
+        <a class="home-btn" href="#">视频</a>
+        <a class="home-btn" href="#">动画</a>
+        <a class="home-btn" href="#">文本</a>
+        <a class="home-btn" href="#">其他</a>
+    </div>
+    <ul id="recommandSource" class="mt20 section-content">
+        <li class="fl ml60">
+            <a>
+                <img width="314" height="193" src="images/home4.jpg">
+            </a>
+            <dl>
+                <dt>
+                    <a>Apple人机交互指南</a>
+                </dt>
+                <dd>上传者: 兰世儒
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;格式 PDF</span>
+                </dd>
+            </dl>
+        </li>
+        <li class="fl ml60">
+            <a>
+                <img width="314" height="193" src="images/home5.jpg">
+            </a>
+            <dl>
+                <dt>
+                    <a>用户心理学 第一章</a>
+                </dt>
+                <dd>上传者: 刘颖
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;格式 PPT</span>
+                </dd>
+            </dl>
+        </li>
+        <li class="fl ml60">
+            <a>
+                <img width="314" height="193" src="images/home6.jpg">
+            </a>
+            <dl>
+                <dt>
+                    <a>表盘设计</a>
+                </dt>
+                <dd>上传者: 梁俊辉
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;格式 视频</span>
+                </dd>
+            </dl>
+        </li>
+    </ul>
+    <div class="cb"></div>
+
+    <div class="home-more">
+        <a class="home-btn" href="">全部素材</a>
+    </div>
+</section>
+
+<footer class="footHeight">
+    <div class="footHeight-center">
+        <ul class="ml30">
+           <li class="fl p20"><a href="" target="_blank">关于我们</a></li>
+           <li class="fl p20"><a href="" target="_blank">联系我们</a></li>
+           <li class="fl p20"><a href="" target="_blank">使用帮助</a></li>
+           <li class="fl p20"><a href="" target="_blank">版权说明</a></li>
+        </ul>
+        <div class="fr mt30 footHeight-copyright">2014&nbsp;&copy;武汉高德信息产业有限公司</div>
+    </div>
+</footer>
+</body>
+</html>
